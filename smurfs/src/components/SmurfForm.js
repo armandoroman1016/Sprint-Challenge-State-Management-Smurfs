@@ -1,13 +1,9 @@
 import React from 'react';
 import { Form, Field, withFormik } from 'formik';
-import axios from 'axios'
+import { postData } from '../actions'
+import { connect } from 'react-redux'
 
 const FormCreator = ( props ) => {
-
-    const {addUserOrRecipe} = props
-    const { touched } = props
-    const { errors } = props
-    const { values } = props
 
     return(
             <Form > 
@@ -31,6 +27,26 @@ const SmurfedFormik = withFormik({
         name : name || '',
         age : age || '',
         height : height | ''}
+    },
+
+    handleSubmit(values, props){
+        
+        const dataToPost = {
+            name: values.name,
+            age: values.age,
+            height: values.height,
+            id: Date.now()
+        }
+
+        props.props.postData(dataToPost)
     }
 
-})
+})(FormCreator)
+
+const mapStateToProps = state => {
+    return {
+        state
+    }
+}
+
+export default connect(mapStateToProps, { postData })(SmurfedFormik)
