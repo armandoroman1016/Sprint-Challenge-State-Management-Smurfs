@@ -1,0 +1,10 @@
+export{
+    getData,
+    postData,
+    FETCH_SMURFS_DATA_START,
+    FETCH_SMURFS_DATA_SUCCESS,
+    FETCH_SMURFS_DATA_ERROR,
+    POST_SMURFS_DATA_START,
+    POST_SMURFS_DATA_SUCCESS,
+    POST_SMURFS_DATA_ERROR,
+} from './smurfActions'
