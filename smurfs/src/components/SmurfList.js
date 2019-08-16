@@ -7,14 +7,14 @@ const SmurfList = props => {
     return(
         <div>
         <button onClick = {props.getData}>Click Here To See The Smurfs</button>
-        {props.smurfs.length ? props.smurfs.map(smurf => {
+        {props.smurfs.map(smurf => {
             return ( 
                 <div key = {smurf.id}>
                     <h3>{smurf.name}</h3>
                     <h4>{smurf.age}</h4>
                     <h4>{smurf.height}</h4>
                 </div>)
-        }): <></>}
+        })}
         </div>
     )
 }
